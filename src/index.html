@@ -143,23 +143,39 @@
         </div>
     </section>
 
-    <section class="w-full mt-16 text-brown-color lg:flex lg:flex-row-reverse">
+    <section id="categories" class="w-full mt-16 text-brown-color lg:flex lg:flex-row-reverse">
         <div>
             <p class="text-center">Categories</p>
             <h2 class="text-base md:text-4xl text-center mt-3 px-8 leading-normal md:leading-normal">Furniture Sets
                 Recommendations</h2>
             <div class="bg-light-grey-color rounded-md w-5/6 mx-auto mt-6">
-                <div id="bedroom-category" class="px-3 lg:px-4 py-5">
+                <div id="bedroom-category" class="px-3 lg:px-4 py-5 bg-greenish-color">
                     <h3 class="font-bold">Bedroom</h3>
+                    <p id="bedroom-content">
+                        Enjoy a great living room aesthetics with your family Designs created for increased
+                        comfortability
+                    </p>
                 </div>
                 <div id="living-room-category" class="px-3 lg:px-4 py-5">
                     <h3 class="font-bold">Living Room</h3>
+                    <p id="living-room-content">
+                        Enjoy a great living room aesthetics with your family Designs created for increased
+                        comfortability
+                    </p>
                 </div>
                 <div id="home-office-category" class="px-3 lg:px-4 py-5">
                     <h3 class="font-bold">Home Office</h3>
+                    <p id="home-office-content">
+                        Enjoy a great living room aesthetics with your family Designs created for increased
+                        comfortability
+                    </p>
                 </div>
                 <div id="gaming-room-category" class="px-3 lg:px-4 py-5">
                     <h3 class="font-bold">Gaming Room</h3>
+                    <p id="gaming-room-content">
+                        Enjoy a great living room aesthetics with your family Designs created for increased
+                        comfortability
+                    </p>
                 </div>
             </div>
         </div>
@@ -214,10 +230,12 @@
                 </div>
                 <div
                     class="flex lg:justify-end justify-between absolute top-[50%] left-0 right-0 lg:static lg:gap-5 lg:p-16">
-                    <i class="material-symbols-outlined bg-greenish-color p-2 rounded-full cursor-pointer hover:-translate-y-2 transition" id="prev">
+                    <i class="material-symbols-outlined bg-greenish-color p-2 rounded-full cursor-pointer hover:-translate-y-2 transition"
+                        id="prev">
                         chevron_left
                     </i>
-                    <i class="material-symbols-outlined bg-greenish-color p-2 rounded-full cursor-pointer hover:-translate-y-2 transition" id="next">
+                    <i class="material-symbols-outlined bg-greenish-color p-2 rounded-full cursor-pointer hover:-translate-y-2 transition"
+                        id="next">
                         chevron_right
                     </i>
                 </div>
@@ -298,6 +316,31 @@
     </script>
 
     <script>
+        $('#living-room-content').slideUp(5)
+        $('#home-office-content').slideUp(5)
+        $('#gaming-room-content').slideUp(5)
+
+        $('#bedroom-category').click(() => {
+            $('#bedroom-content').slideToggle(500)
+            $('#bedroom-category').toggleClass('bg-greenish-color')
+        })
+        $('#living-room-category').click(() => {
+            $('#living-room-content').slideToggle(500)
+            $('#living-room-category').toggleClass('bg-greenish-color')
+            
+        })
+        $('#home-office-category').click(() => {
+            $('#home-office-content').slideToggle(500)
+            $('#home-office-category').toggleClass('bg-greenish-color')
+        })
+        $('#gaming-room-category').click(() => {
+            $('#gaming-room-content').slideToggle(500)
+            $('#gaming-room-category').toggleClass('bg-greenish-color')
+        })
+
+    </script>
+
+    <script>
         const carosoul = $('#carosoul>div')
         const carosoulContent = $('.carosoul-content')
         const prev = $('#prev')
@@ -309,8 +352,6 @@
             type: "GET",
             dataType: "json",
             success: function (data) {
-                carosoul[0].classList.add('active-carosoul')
-
                 newP1.classList.add('w-fit', 'text-black', 'text-sm', 'lg:text-base', 'py-2', 'px-6', 'bg-white', 'bg-opacity-50', 'rounded-xl')
                 newP1.innerText = '$' + data[0].price
                 carosoulContent[0].append(newP1)
@@ -318,6 +359,9 @@
                 newP2.classList.add('text-xl', 'lg:text-3xl', 'text-white', 'my-3', 'lg:my-5', 'line-clamp-2', 'rounded-xl')
                 newP2.innerText = data[0].title
                 carosoulContent[0].append(newP2)
+
+
+                carosoul[0].classList.add('active-carosoul')
 
             }, error: function (jqXHR, textStatus, errorThrown) {
                 console.log(textStatus, errorThrown);
@@ -329,7 +373,7 @@
                 return null
             for (let index = 0; index < carosoul.length; index++) {
                 if (carosoul[index].classList.contains('active-carosoul')) {
-              
+
                     $.ajax({
                         url: 'https://api.escuelajs.co/api/v1/products/?categoryId=3',
                         type: "GET",
