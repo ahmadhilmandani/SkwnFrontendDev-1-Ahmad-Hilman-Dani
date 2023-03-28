@@ -42,7 +42,7 @@
         <img src="../assets/menu.svg" alt="menu icon" class="w-8">
     </nav>
 
-    <header class="w-full mt-24 lg:mt-10 lg:flex lg:justify-center lg:items-center">
+    <header class="w-full mt-24 lg:mt-0 lg:flex lg:justify-center lg:items-center">
         <div class="px-2 lg:px-24">
             <h1 class="text-brown-color text-center lg:text-left leading-[1.35] lg:leading-[1.35] lg:w-3/4">
                 The kind of
@@ -69,8 +69,15 @@
             </div>
         </div>
         <div id="hero"
-            class="w-full lg:w-[640px] h-[233px] md:h-[350px] lg:h-[700px] bg-no-repeat bg-cover object-fill bg-center lg:bg-center mt-12 lg:mt-0"
+            class="w-full lg:w-[640px] h-[233px] md:h-[350px] lg:h-[700px] bg-no-repeat bg-cover object-fill bg-center lg:bg-center mt-12 lg:mt-0 relative"
             style="background-image: url('../assets/hero.svg');">
+            <div id="highlighted"
+                class="w-full h-full p-5 lg:py-24 absolute bottom-0 top-0 left-0 right-0 flex flex-col justify-between lg:justify-end">
+                <p class="text-white lg:hidden hidden">HIGHLIGHTED PRODUCT</p>
+                <div>
+
+                </div>
+            </div>
         </div>
     </header>
 
@@ -104,7 +111,7 @@
                         5 YEARS OF WARRANTY FOR EACH PROFUCT
                     </p>
                 </div>
-                <div class="flex items-center justify-center gap-x-3">
+                <div class="flex items-center justify-center gap-x-3 round">
                     <i
                         class="material-symbols-outlined block p-2 text-white rounded-sm text-center bg-greenish-color bg-opacity-50 text-sm font-bold basis-10">work</i>
                     <p class="text-greenish-color font-semibold max-w-[280px]">20 YEARS OF EXPERTISE</p>
@@ -129,12 +136,12 @@
             type: "GET",
             dataType: "json",
             success: function (data) {
-                // for (let index = 0; index < Object.keys(data).length; index++) {
-                //     for (let j = 0; j < data[index].images.length; j++) {
-                //         $('#coba').append('<img src=' + data[index].images[1] + ' alt="">')
-                //     }
-                // }
-                console.log(data);
+                $('#highlighted>div').append("<p class='w-fit text-black text-sm lg:text-base py-2 px-6 bg-white bg-opacity-50 rounded-xl'> $" + data[0].price + ' </p>')
+                $('#highlighted>div').append("<p class='text-xl lg:text-3xl text-white my-3 lg:my-5 line-clamp-2'>" + data[0].title + ' </p>')
+                $('#highlighted>div').append("<a href=" + data[0].id + " class='text-sm lg:text-base rounded-xl text-white bg-brown-color px-7 py-3'>" + 'Detail' + "<i class='material-symbols-outlined align-middle text-sm ml-3'>chevron_right</i>" + ' </a>')
+                for (let index = 1; index < Object.keys(data).length; index++) {
+
+                }
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 console.log(textStatus, errorThrown);
