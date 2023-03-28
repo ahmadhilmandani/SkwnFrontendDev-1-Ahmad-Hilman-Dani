@@ -12,19 +12,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script defer src="slide.js"></script>
     <style>
         * {
             font-family: 'Inter', 'sans-serif';
         }
 
-        /* :root {
-            --brown-color: #2F241F;
-            --light-brown-color: #817253;
-            --greenish-color: #E5F0B6;
-            --darkish-blue-color: #667085;
-            --light-grey-color: #FCFAFA;
-            --white-color: #fff;
-        } */
+        .active-carosoul {
+            transform: translateY(40px);
+            transform: scale(1.15);
+            transition: all 0.5s;
+        }
+
         .material-symbols-outlined {
             font-variation-settings:
                 'FILL' 0,
@@ -174,8 +173,8 @@
         </div>
     </section>
 
-    <main class="w-full mt-6 lg:mt-20">
-        <div class="bg-brown-color py-8">
+    <main class="w-full mt-6 lg:mt-20 bg-brown-color">
+        <div class=" py-8">
             <div class="flex justify-between items-center px-3">
                 <div class="text-greenish-color w-[70%]">
                     <p class="text-sm lg:text-base">OUR PRODUCTS</p>
@@ -185,23 +184,45 @@
                     SEE MORE
                 </a>
             </div>
-            <div class="relative mt-4 lg:mt-12">
-                <div class="flex overflow-auto gap-4 lg:gap-9 px-4">
-                    <img src="../assets/product-1.svg" alt="" class="min-w-[192px] max-w-[300px] rounded-md">
-                    <img src="../assets/product-2.svg" alt="" class="min-w-[192px] max-w-[300px] rounded-md">
-                    <img src="../assets/product-3.svg" alt="" class="min-w-[192px] max-w-[300px] rounded-md">
-                    <img src="../assets/product-4.svg" alt="" class="min-w-[192px] max-w-[300px] rounded-md">
+
+            <div class="mt-4 lg:mt-12 relative">
+                <div id="carosoul" class="flex gap-4 overflow-auto lg:overflow-visible lg:gap-10 px-10">
+                    <div class="relative">
+                        <img src="../assets/product-1.svg" alt="" class="min-w-[192px] max-w-[270px] rounded-md">
+                        <div class="carosoul-content p-6 absolute bottom-0 left-0">
+
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <img src="../assets/product-2.svg" alt="" class="min-w-[192px] max-w-[270px] rounded-md">
+                        <div class="carosoul-content p-6 absolute bottom-0 left-0">
+
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <img src="../assets/product-3.svg" alt="" class="min-w-[192px] max-w-[270px] rounded-md">
+                        <div class="carosoul-content p-6 absolute bottom-0 left-0">
+
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <img src="../assets/product-4.svg" alt="" class="min-w-[192px] max-w-[270px] rounded-md">
+                        <div class="carosoul-content p-6 absolute bottom-0 left-0">
+
+                        </div>
+                    </div>
                 </div>
                 <div
-                    class="flex lg:justify-end justify-between absolute top-[50%] left-0 right-0 lg:static lg:gap-5 lg:p-5">
-                    <i class="material-symbols-outlined bg-greenish-color p-2 rounded-full">
+                    class="flex lg:justify-end justify-between absolute top-[50%] left-0 right-0 lg:static lg:gap-5 lg:p-16">
+                    <i class="material-symbols-outlined bg-greenish-color p-2 rounded-full cursor-pointer hover:-translate-y-2 transition" id="prev">
                         chevron_left
                     </i>
-                    <i class="material-symbols-outlined bg-greenish-color p-2 rounded-full">
+                    <i class="material-symbols-outlined bg-greenish-color p-2 rounded-full cursor-pointer hover:-translate-y-2 transition" id="next">
                         chevron_right
                     </i>
                 </div>
             </div>
+
         </div>
         <div class="bg-light-grey-color text-brown-color lg:p-12 px-4 py-12">
             <p class="text-center lg:text-left">LIMITED DEALS</p>
@@ -261,19 +282,14 @@
     <div id="coba"></div>
 
     <script>
-        $('#heading-1').css({ color: 'var(--white-color)', backgroundColor: 'var(--brown-color)' })
         $.ajax({
             url: 'https://api.escuelajs.co/api/v1/products/?categoryId=3',
             type: "GET",
             dataType: "json",
             success: function (data) {
-                $('#highlighted>div').append("<p class='w-fit text-black text-sm lg:text-base py-2 px-6 bg-white bg-opacity-50 rounded-xl'> $" + data[1].price + ' </p>')
-                $('#highlighted>div').append("<p class='text-xl lg:text-3xl text-white my-3 lg:my-5 line-clamp-2'>" + data[1].title + ' </p>')
-                $('#highlighted>div').append("<a href=" + data[1].id + " class='text-sm lg:text-base rounded-xl text-white bg-brown-color px-7 py-3'>" + 'Detail' + "<i class='material-symbols-outlined align-middle text-sm ml-3'>chevron_right</i>" + ' </a>')
-                for (let index = 1; index < Object.keys(data).length; index++) {
-
-                }
-                console.log(data);
+                $('#highlighted>div').append("<p class='w-fit text-black text-sm lg:text-base py-2 px-6 bg-white bg-opacity-50 rounded-xl'> $" + data[5].price + ' </p>')
+                $('#highlighted>div').append("<p class='text-xl lg:text-3xl text-white my-3 lg:my-5 line-clamp-2'>" + data[5].title + ' </p>')
+                $('#highlighted>div').append("<a href=" + data[5].id + " class='text-sm lg:text-base rounded-xl text-white bg-brown-color px-7 py-3'>" + 'Detail' + "<i class='material-symbols-outlined align-middle text-sm ml-3'>chevron_right</i>" + ' </a>')
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 console.log(textStatus, errorThrown);
@@ -281,6 +297,100 @@
         });
     </script>
 
+    <script>
+        const carosoul = $('#carosoul>div')
+        const carosoulContent = $('.carosoul-content')
+        const prev = $('#prev')
+        const next = $('#next')
+        let newP1 = document.createElement('p');
+        let newP2 = document.createElement('p');
+        $.ajax({
+            url: 'https://api.escuelajs.co/api/v1/products/?categoryId=3',
+            type: "GET",
+            dataType: "json",
+            success: function (data) {
+                carosoul[0].classList.add('active-carosoul')
+
+                newP1.classList.add('w-fit', 'text-black', 'text-sm', 'lg:text-base', 'py-2', 'px-6', 'bg-white', 'bg-opacity-50', 'rounded-xl')
+                newP1.innerText = '$' + data[0].price
+                carosoulContent[0].append(newP1)
+
+                newP2.classList.add('text-xl', 'lg:text-3xl', 'text-white', 'my-3', 'lg:my-5', 'line-clamp-2', 'rounded-xl')
+                newP2.innerText = data[0].title
+                carosoulContent[0].append(newP2)
+
+            }, error: function (jqXHR, textStatus, errorThrown) {
+                console.log(textStatus, errorThrown);
+            }
+        });
+
+        prev.click((e) => {
+            if (carosoul[0].classList.contains('active-carosoul'))
+                return null
+            for (let index = 0; index < carosoul.length; index++) {
+                if (carosoul[index].classList.contains('active-carosoul')) {
+              
+                    $.ajax({
+                        url: 'https://api.escuelajs.co/api/v1/products/?categoryId=3',
+                        type: "GET",
+                        dataType: "json",
+                        success: function (data) {
+                            newP1.classList.add('w-fit', 'text-black', 'text-sm', 'lg:text-base', 'py-2', 'px-6', 'bg-white', 'bg-opacity-50', 'rounded-xl')
+                            newP1.innerText = '$' + data[index - 1].price
+
+                            newP2.classList.add('text-xl', 'lg:text-3xl', 'text-white', 'my-3', 'lg:my-5', 'line-clamp-2', 'rounded-xl')
+                            newP2.innerText = data[index - 1].title
+
+                            carosoulContent[index - 1].append(newP1)
+                            carosoulContent[index - 1].append(newP2)
+
+                            carosoul[index].classList.remove('active-carosoul')
+                            carosoul[index - 1].classList.add('active-carosoul')
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            console.log(textStatus, errorThrown);
+                        }
+                    });
+                    break;
+                }
+            }
+            e.preventDefault()
+        })
+
+        next.click((e) => {
+            if (carosoul[3].classList.contains('active-carosoul'))
+                return null
+            for (let index = 0; index < carosoul.length; index++) {
+                if (carosoul[index].classList.contains('active-carosoul')) {
+
+
+                    $.ajax({
+                        url: 'https://api.escuelajs.co/api/v1/products/?categoryId=3',
+                        type: "GET",
+                        dataType: "json",
+                        success: function (data) {
+                            newP1.classList.add('w-fit', 'text-black', 'text-sm', 'lg:text-base', 'py-2', 'px-6', 'bg-white', 'bg-opacity-50', 'rounded-xl')
+                            newP1.innerText = '$' + data[index + 1].price
+
+                            newP2.classList.add('text-xl', 'lg:text-3xl', 'text-white', 'my-3', 'lg:my-5', 'line-clamp-2', 'rounded-xl')
+                            newP2.innerText = data[index + 1].title
+
+                            carosoulContent[index + 1].append(newP1)
+                            carosoulContent[index + 1].append(newP2)
+
+                            carosoul[index].classList.remove('active-carosoul')
+                            carosoul[index + 1].classList.add('active-carosoul')
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            console.log(textStatus, errorThrown);
+                        }
+                    });
+                    break;
+                }
+            }
+            e.preventDefault()
+        })
+    </script>
 </body>
 
 </html>
