@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX usigng JQUERY</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        * {
+            font-family: 'Inter', 'sans-serif';
+        }
+
+        /* :root {
+            --brown-color: #2F241F;
+            --light-brown-color: #817253;
+            --greenish-color: #E5F0B6;
+            --darkish-blue-color: #667085;
+            --light-grey-color: #FCFAFA;
+            --white-color: #fff;
+        } */
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 48
+        }
+    </style>
+    <link href="/dist/output.css" rel="stylesheet">
+
+<body>
+    <nav
+        class="w-full h-16 shadow-md flex justify-between items-center px-4 fixed top-0 left-0 right-0 z-[100] bg-white-color">
+        <img src="../assets/logo.png" alt="logo of dekor" class="w-[100px]">
+        <img src="../assets/menu.png" alt="menu icon" class="w-8">
+    </nav>
+
+    <header class="w-full mt-24 lg:flex">
+        <div class="px-2">
+            <h1 class="text-brown-color text-center leading-[1.35] lg:leading-[1.35]">The kind of <span
+                    class="text-light-brown-color">furniture</span> you have been looking for</h1>
+            <a href=""
+                class="block px-6 py-3 rounded-lg bg-greenish-color text-center w-[260px] mx-auto mt-8 text-sm lg:text-base align-middle">
+                <i class="material-symbols-outlined align-middle mr-3">search</i>
+                SEARCH CATALOG
+            </a>
+            <a href=""
+                class="block px-6 py-3 rounded-lg border-brown-color border text-center w-[260px] mx-auto mt-3 text-sm lg:text-base align-middle">
+                <i class="material-symbols-outlined align-middle mr-3">play_circle</i>
+                WATCH VIDEOS
+            </a>
+        </div>
+        <div id="hero"
+            class="w-full lg:w-[640px] h-[233px] md:h-[350px] lg:h-[700px] bg-no-repeat bg-cover object-fill bg-center lg:bg-center mt-12 lg:mt-0"
+            style="background-image: url('../assets/hero.png');">
+        </div>
+    </header>
+
+    <section class="w-full bg-brown-color flex justify-center items-center lg:p-20 p-4">
+        <div>
+            <p class="text-greenish-color">WHY CHOOSE US?</p>
+            <h2 class="text-greenish-color">We care about details and the quality of our products</h2>
+            <div class="flex justify-between flex-wrap">
+                <div class="flex">
+                    <i class="material-symbols-outlined text-white rounded-sm p-2 bg-greenish-color bg-opacity-50">search</i>
+                    <p class="text-greenish-color">MANUFACTURED WITH QUALITY MATERIALS</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div>
+        <!-- <h1 id="heading-1">Heading one</h1>
+            <p id="para-1">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur nemo, repellat saepe quia
+                eum fuga doloremque eaque qui id ducimus? Tempore maiores ipsam quaerat ut fuga, labore at aperiam ad?
+            </p> -->
+    </div>
+    <div id="coba"></div>
+
+    <script>
+        $('#heading-1').css({ color: 'var(--white-color)', backgroundColor: 'var(--brown-color)' })
+        $.ajax({
+            url: 'https://api.escuelajs.co/api/v1/products/?categoryId=3',
+            type: "GET",
+            dataType: "json",
+            success: function (data) {
+                // for (let index = 0; index < Object.keys(data).length; index++) {
+                //     for (let j = 0; j < data[index].images.length; j++) {
+                //         $('#coba').append('<img src=' + data[index].images[1] + ' alt="">')
+                //     }
+                // }
+                console.log(data);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(textStatus, errorThrown);
+            }
+        });
+    </script>
+
+</body>
+
+</html>
