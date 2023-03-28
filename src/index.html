@@ -203,27 +203,61 @@
                 </div>
             </div>
         </div>
-        <div class="bg-light-grey-color text-brown-color">
-            <p>LIMITED DEALS</p>
-            <h2>Become a member and get 10% off of your first purchase
+        <div class="bg-light-grey-color text-brown-color lg:p-12 px-4 py-12">
+            <p class="text-center lg:text-left">LIMITED DEALS</p>
+            <h2 class="text-lg lg:text-5xl lg:my-10 my-2 text-center lg:text-left w-full lg:w-4/5">
+                Become a member and get 10% off of your first purchase
             </h2>
-            <form>
-                <input type="email" placeholder="Enter your email here">
-                <button type="submit">
+            <form class="flex justify-center lg:justify-start mx-auto lg:mx-0">
+                <input type="email" placeholder="Enter your email here" class="bg-white rounded-l-lg px-5 py-3">
+                <button type="submit" class="bg-greenish-color flex justify-center items-center rounded-r-lg p-3">
                     <i class="material-symbols-outlined">mail</i>
                 </button>
             </form>
-
         </div>
     </main>
 
-    <div>
-        <!-- <h1 id="heading-1">Heading one</h1>
-            <p id="para-1">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur nemo, repellat saepe quia
-                eum fuga doloremque eaque qui id ducimus? Tempore maiores ipsam quaerat ut fuga, labore at aperiam ad?
-            </p> -->
-    </div>
+    <footer class="w-full lg:p-12 p-4 lg:flex lg:justify-between mt-20 mb-10">
+        <div class="lg:w-[40%]">
+            <img src="../assets/logo.svg" alt="logo of dekor" class="w-[90px] mx-auto lg:mx-0">
+            <p class="text-center lg:text-left text-darkish-blue-color my-9">
+                Dekoor is a furniture company created to fulfill the needs of family with aesthetic feeling in their
+                furniture. Always pay attention to details and give clear communication for the customers. Priority of
+                our design is comfortability.
+            </p>
+            <p class="text-darkish-blue-color hidden lg:block">©Copyright 2022 Dekoor</p>
+        </div>
+        <div class="lg:w-[45%] flex justify-center gap-8 lg:gap-16 flex-wrap text-darkish-blue-color">
+            <div>
+                <p class="font-semibold">Support</p>
+                <ul>
+                    <li class="my-5">FAQ</li>
+                    <li>Shipping & Returns</li>
+                    <li class="my-5">Care guide</li>
+                    <li>Redeem warranty</li>
+                </ul>
+            </div>
+            <div>
+                <p class="font-semibold">Social Media</p>
+                <ul>
+                    <li class="my-5">Instagram</li>
+                    <li>Facebook</li>
+                    <li class="my-5">Twitter</li>
+                    <li>TikTok</li>
+                </ul>
+            </div>
+            <div>
+                <p class="font-semibold">About us</p>
+                <ul>
+                    <li class="my-5">Our Story</li>
+                    <li>Designer</li>
+                    <li class="my-5">Craftmanship</li>
+                    <li>Sustainability</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
     <div id="coba"></div>
 
     <script>
@@ -233,12 +267,13 @@
             type: "GET",
             dataType: "json",
             success: function (data) {
-                $('#highlighted>div').append("<p class='w-fit text-black text-sm lg:text-base py-2 px-6 bg-white bg-opacity-50 rounded-xl'> $" + data[0].price + ' </p>')
-                $('#highlighted>div').append("<p class='text-xl lg:text-3xl text-white my-3 lg:my-5 line-clamp-2'>" + data[0].title + ' </p>')
-                $('#highlighted>div').append("<a href=" + data[0].id + " class='text-sm lg:text-base rounded-xl text-white bg-brown-color px-7 py-3'>" + 'Detail' + "<i class='material-symbols-outlined align-middle text-sm ml-3'>chevron_right</i>" + ' </a>')
+                $('#highlighted>div').append("<p class='w-fit text-black text-sm lg:text-base py-2 px-6 bg-white bg-opacity-50 rounded-xl'> $" + data[1].price + ' </p>')
+                $('#highlighted>div').append("<p class='text-xl lg:text-3xl text-white my-3 lg:my-5 line-clamp-2'>" + data[1].title + ' </p>')
+                $('#highlighted>div').append("<a href=" + data[1].id + " class='text-sm lg:text-base rounded-xl text-white bg-brown-color px-7 py-3'>" + 'Detail' + "<i class='material-symbols-outlined align-middle text-sm ml-3'>chevron_right</i>" + ' </a>')
                 for (let index = 1; index < Object.keys(data).length; index++) {
 
                 }
+                console.log(data);
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 console.log(textStatus, errorThrown);
