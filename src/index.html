@@ -38,44 +38,81 @@
 <body>
     <nav
         class="w-full h-16 shadow-md flex justify-between items-center px-4 fixed top-0 left-0 right-0 z-[100] bg-white-color">
-        <img src="../assets/logo.png" alt="logo of dekor" class="w-[100px]">
-        <img src="../assets/menu.png" alt="menu icon" class="w-8">
+        <img src="../assets/logo.svg" alt="logo of dekor" class="w-[100px]">
+        <img src="../assets/menu.svg" alt="menu icon" class="w-8">
     </nav>
 
-    <header class="w-full mt-24 lg:flex">
-        <div class="px-2">
-            <h1 class="text-brown-color text-center leading-[1.35] lg:leading-[1.35]">The kind of <span
-                    class="text-light-brown-color">furniture</span> you have been looking for</h1>
-            <a href=""
-                class="block px-6 py-3 rounded-lg bg-greenish-color text-center w-[260px] mx-auto mt-8 text-sm lg:text-base align-middle">
-                <i class="material-symbols-outlined align-middle mr-3">search</i>
-                SEARCH CATALOG
-            </a>
-            <a href=""
-                class="block px-6 py-3 rounded-lg border-brown-color border text-center w-[260px] mx-auto mt-3 text-sm lg:text-base align-middle">
-                <i class="material-symbols-outlined align-middle mr-3">play_circle</i>
-                WATCH VIDEOS
-            </a>
+    <header class="w-full mt-24 lg:mt-10 lg:flex lg:justify-center lg:items-center">
+        <div class="px-2 lg:px-24">
+            <h1 class="text-brown-color text-center lg:text-left leading-[1.35] lg:leading-[1.35] lg:w-3/4">
+                The kind of
+                <span class="text-light-brown-color">
+                    furniture
+                </span>
+                you have been looking for
+            </h1>
+            <div class="lg:flex lg:gap-3 lg:justify-start lg:items-center mt-10">
+                <a href=""
+                    class="block px-6 py-3 rounded-lg bg-greenish-color text-center w-[260px] mx-auto lg:m-0 text-sm lg:text-base align-middle">
+                    <i class="material-symbols-outlined align-middle mr-3">
+                        search
+                    </i>
+                    SEARCH CATALOG
+                </a>
+                <a href=""
+                    class="block px-6 py-3 rounded-lg border-brown-color border text-center w-[260px] mx-auto lg:m-0 mt-3 text-sm lg:text-base align-middle">
+                    <i class="material-symbols-outlined align-middle mr-3">
+                        play_circle
+                    </i>
+                    WATCH VIDEOS
+                </a>
+            </div>
         </div>
         <div id="hero"
             class="w-full lg:w-[640px] h-[233px] md:h-[350px] lg:h-[700px] bg-no-repeat bg-cover object-fill bg-center lg:bg-center mt-12 lg:mt-0"
-            style="background-image: url('../assets/hero.png');">
+            style="background-image: url('../assets/hero.svg');">
         </div>
     </header>
 
     <section class="w-full bg-brown-color flex justify-center items-center lg:p-20 p-4">
         <div>
-            <p class="text-greenish-color">WHY CHOOSE US?</p>
-            <h2 class="text-greenish-color">We care about details and the quality of our products</h2>
-            <div class="flex justify-between flex-wrap">
-                <div class="flex">
-                    <i class="material-symbols-outlined text-white rounded-sm p-2 bg-greenish-color bg-opacity-50">search</i>
-                    <p class="text-greenish-color">MANUFACTURED WITH QUALITY MATERIALS</p>
+            <div class="lg:w-4/6 w-full">
+                <p class="text-greenish-color text-center lg:text-left">
+                    WHY CHOOSE US?
+                </p>
+                <h2 class="text-greenish-color my-6 text-xl lg:text-4xl">
+                    We care about details and the quality of our products
+                </h2>
+            </div>
+
+            <div class="flex justify-between flex-wrap lg:gap-2 gap-6 mt-10">
+                <div class="flex items-center justify-evenly gap-x-3">
+                    <i
+                        class="material-symbols-outlined block text-white rounded-sm text-center p-2 bg-greenish-color bg-opacity-50 text-sm font-bold basis-10">
+                        search
+                    </i>
+                    <p class="text-greenish-color font-semibold max-w-[280px]">
+                        MANUFACTURED WITH QUALITY MATERIALS
+                    </p>
+                </div>
+                <div class="flex items-center justify-center gap-x-3">
+                    <span
+                        class="block text-white rounded-sm text-center p-2 bg-greenish-color bg-opacity-50 text-sm font-semibold basis-10">
+                        5
+                    </span>
+                    <p class="text-greenish-color font-semibold max-w-[280px] shrink">
+                        5 YEARS OF WARRANTY FOR EACH PROFUCT
+                    </p>
+                </div>
+                <div class="flex items-center justify-center gap-x-3">
+                    <i
+                        class="material-symbols-outlined block p-2 text-white rounded-sm text-center bg-greenish-color bg-opacity-50 text-sm font-bold basis-10">work</i>
+                    <p class="text-greenish-color font-semibold max-w-[280px]">20 YEARS OF EXPERTISE</p>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <div>
         <!-- <h1 id="heading-1">Heading one</h1>
             <p id="para-1">
