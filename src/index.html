@@ -39,7 +39,18 @@
     <nav
         class="w-full h-16 lg:h-20 shadow-md flex justify-between items-center px-4 lg:px-16 fixed top-0 left-0 right-0 z-[100] bg-white-color">
         <img src="../assets/logo.svg" alt="logo of dekor" class="w-[100px]">
-        <img src="../assets/menu.svg" alt="menu icon" class="w-8">
+        <img src="../assets/menu.svg" alt="menu icon" class="w-8 lg:hidden block">
+        <ul class="hidden lg:flex gap-x-12">
+            <li><a href="">About us</a></li>
+            <li><a href="">Furniture <i class="material-symbols-outlined align-middle">expand_more</i></a></li>
+            <li><a href="">Partnership</a></li>
+            <li><a href="">Contact</a></li>
+        </ul>
+        <div class="hidden lg:flex gap-3 items-center">
+            <a href="">Sign Up</a>
+            <a href=""><i
+                    class="material-symbols-outlined text-greenish-color bg-brown-color p-3 rounded-xl">shopping_bag</i></a>
+        </div>
     </nav>
 
     <header class="w-full mt-24 lg:mt-0 lg:flex lg:justify-center lg:items-center">
@@ -69,25 +80,24 @@
             </div>
         </div>
         <div id="hero"
-            class="w-full lg:w-[640px] h-[233px] md:h-[350px] lg:h-[700px] bg-no-repeat bg-cover object-fill bg-center lg:bg-center mt-12 lg:mt-0 relative"
+            class="w-full lg:w-[640px] h-[233px] md:h-[350px] lg:h-[700px] bg-no-repeat bg-cover object-fill bg-center mt-12 lg:mt-0 relative"
             style="background-image: url('../assets/hero.svg');">
             <div id="highlighted"
                 class="w-full h-full p-5 lg:py-24 absolute bottom-0 top-0 left-0 right-0 flex flex-col justify-between lg:justify-end">
-                <p class="text-white lg:hidden hidden">HIGHLIGHTED PRODUCT</p>
+                <p class="text-white lg:hidden block">HIGHLIGHTED PRODUCT</p>
                 <div>
-
                 </div>
             </div>
         </div>
     </header>
 
-    <section class="w-full bg-brown-color flex justify-center items-center lg:p-20 p-4">
+    <section class="w-full bg-brown-color flex justify-center items-center lg:p-20 px-4 py-8">
         <div>
             <div class="lg:w-4/6 w-full">
                 <p class="text-greenish-color text-center lg:text-left">
                     WHY CHOOSE US?
                 </p>
-                <h2 class="text-greenish-color my-6 text-xl lg:text-4xl">
+                <h2 class="text-greenish-color my-6 text-xl md:text-4xl">
                     We care about details and the quality of our products
                 </h2>
             </div>
@@ -117,6 +127,50 @@
                     <p class="text-greenish-color font-semibold max-w-[280px]">20 YEARS OF EXPERTISE</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section
+        class="w-full bg-light-grey-color flex justify-center items-center lg:p-20 px-4 py-8 flex-wrap text-brown-color">
+        <div class="text-center lg:text-left">
+            <h2 class="text-xl md:text-6xl">25+</h2>
+            <p class="">PARTNERED BRANDS</p>
+        </div>
+        <div class="flex justify-center items-center gap-8 lg:gap-16 mt-4 lg:mt-0 lg:ml-16">
+            <img src="../assets/partner-1.svg" alt="" class="grow h-4 md:h-8">
+            <img src="../assets/partner-2.svg" alt="" class="grow h-4 md:h-8">
+            <img src="../assets/partner-3.svg" alt="" class="grow h-4 md:h-8">
+            <img src="../assets/partner-4.svg" alt="" class="grow h-4 md:h-8">
+        </div>
+    </section>
+
+    <section class="w-full mt-16 text-brown-color lg:flex lg:flex-row-reverse">
+        <div>
+            <p class="text-center">Categories</p>
+            <h2 class="text-base md:text-4xl text-center mt-3 px-8 leading-normal md:leading-normal">Furniture Sets
+                Recommendations</h2>
+            <div class="bg-light-grey-color rounded-md w-5/6 mx-auto mt-6">
+                <div id="bedroom-category" class="px-3 lg:px-4 py-5">
+                    <h3 class="font-bold">Bedroom</h3>
+                </div>
+                <div id="living-room-category" class="px-3 lg:px-4 py-5">
+                    <h3 class="font-bold">Living Room</h3>
+                </div>
+                <div id="home-office-category" class="px-3 lg:px-4 py-5">
+                    <h3 class="font-bold">Home Office</h3>
+                </div>
+                <div id="gaming-room-category" class="px-3 lg:px-4 py-5">
+                    <h3 class="font-bold">Gaming Room</h3>
+                </div>
+            </div>
+        </div>
+        <div class="flex justify-evenly mt-4 lg:gap-6">
+            <div class="w-[30%] h-[132px] lg:w-[148px] lg:h-[523px] object-fill bg-no-repeat bg-center bg-cover rounded-xl"
+                style="background-image: url('../assets/category-1.svg');"></div>
+            <div class="w-[30%] h-[132px] lg:w-[148px] lg:h-[523px] object-fill bg-no-repeat bg-center bg-cover rounded-xl"
+                style="background-image: url('../assets/category-2.svg');"></div>
+            <div class="w-[30%] h-[132px] lg:w-[472px] lg:h-[523px] object-fill bg-no-repeat bg-center bg-cover rounded-xl"
+                style="background-image: url('../assets/category-3.svg');"></div>
         </div>
     </section>
 
